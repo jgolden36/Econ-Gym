@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "econgym"
+version = "0.1.0"
+description = "Economic environments and tooling compatible with Gymnasium for RL, calibration, and estimation"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "EconGym Contributors" }]
+dependencies = [
+  "numpy>=1.23,<3",
+  "gymnasium>=0.28,<1",
+]
+
+[project.optional-dependencies]
+torch = ["torch>=1.12"]
+sb3 = ["stable-baselines3>=1.8,<2"]
+jax = ["jax>=0.4", "jaxlib>=0.4", "optax>=0.1"]
+plot = ["matplotlib>=3.5,<4", "scipy>=1.9,<2"]
+pettingzoo = ["pettingzoo>=1.24,<2"]
+dev = [
+  "pytest>=7",
+  "pytest-cov>=4",
+  "mypy>=1.8",
+  "ruff>=0.4",
+  "black>=24.0",
+  "types-requests",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["econgym*"]
+
+[tool.setuptools.package-data]
+econgym = ["py.typed"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "Tests"]
+
+[project.scripts]
+econgym = "econgym.cli:main"
+
+

@@ -1,0 +1,18 @@
+site_name: EconGym
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Models:
+      - Aiyagari: models/aiyagari.md
+      - Zurcher: models/zurcher.md
+      - BBL: models/bbl.md
+      - RANK: models/rank.md
+      - HANK: models/hank.md
+      - TANK: models/tank.md
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true
+
